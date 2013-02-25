@@ -3,7 +3,7 @@
 {% block content %}
 <div class="entry-list">
     <ol class="group">
-        {% for res in resource.node.walk_resources() %}
+        {% for res in resource.node.walk_resources_sorted_by_time() %}
 {% if res.meta.listable %}
         <li>
             <a href="{{ res.url }}">{{ res.meta.title }}</a>

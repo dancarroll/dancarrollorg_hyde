@@ -69,6 +69,12 @@ sorter:
         attr: meta.learning_order
         filters:
             source_file.kind: html
+    time:
+        attr: meta.created
+        reverse: true
+        filters:
+            source.kind: html
+            meta.listable: true
 
 grouper:
     level:
@@ -93,3 +99,11 @@ grouper:
 
 tagger:
     sorter: name
+
+markdown:
+    extensions:
+        - def_list
+        - tables
+        - headerid
+        - codehilite
+
