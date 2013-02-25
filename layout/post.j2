@@ -1,5 +1,9 @@
 {% extends "base.j2" %}
 
+{% block content %}
+<h1>{{ resource.meta.title }}</h1>
+<h2>Listable: {{ resource.meta.listable }}</h2>
 {% filter markdown -%}
-{% block content %}{% endblock %}
+{% block text %}{% endblock %}
 {%- endfilter %}
+{% endblock %}

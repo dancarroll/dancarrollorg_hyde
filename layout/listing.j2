@@ -1,0 +1,20 @@
+{% extends "base.j2" %}
+
+{% block content %}
+<div class="entry-list">
+    <ol class="group">
+        {% for res in resource.node.walk_resources() %}
+{% if res.meta.listable %}
+        <li>
+            <a href="article.html">{{ res.meta.title }}</a>
+            <div class="bordertop"><span class="snip">{{ res.meta.description }}{{ res.url }}</span></div>
+        </li>
+{% endif %}
+        {% endfor %}
+    </ol>
+</div>
+
+
+{% block additional %}{% endblock %}
+
+{% endblock %}

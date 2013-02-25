@@ -3,6 +3,13 @@
 !!python/unicode 'advanced/overview.html': [ga.j2, base.j2]
 !!python/unicode 'advanced/sorter.html': [ga.j2, base.j2]
 !!python/unicode 'advanced/tagger.html': [ga.j2, base.j2]
+!!python/unicode 'blog.html': [ga.j2, base.j2]
+!!python/unicode 'blog/2012/02/live-tiles-without-cellular-data.html': [ga.j2, base.j2,
+  post.j2]
+!!python/unicode 'blog/2012/02/live-tiles-without-cellular-data.txt': [ga.j2, base.j2,
+  post.j2]
+!!python/unicode 'blog/blog.html': [ga.j2, base.j2]
+!!python/unicode 'blog/index.html': [listing.j2, ga.j2, base.j2]
 !!python/unicode 'first-steps.html': [ga.j2, base.j2]
 !!python/unicode 'index.html': [splash.j2, ga.j2, base.j2]
 !!python/unicode 'media/css/aal.css': []
