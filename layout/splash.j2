@@ -1,0 +1,9 @@
+{% extends "base.j2" %}
+
+{% block content %}
+<div class="landing">
+{% filter markdown %}
+{% block text %}{% endblock %}
+{% endfilter %}
+</div>
+{% endblock %}

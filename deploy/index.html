@@ -8,15 +8,12 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Dan Carroll | Home</title>
     <link rel="alternate" type="application/rss+xml" title="Latest blog entries" href="/feeds/latest/" />
-    <link rel="stylesheet" href="{{ media_url('css/aal.css') }}" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="{{ media_url('css/base.css') }}" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/media/css/aal.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/media/css/base.css" type="text/css" media="screen" charset="utf-8" />
     <meta name="description" content="Personal blog of Dan Carroll, a developer based in Cambridge. Topics include C#, Python, Django, and gaming." />
 
     <!-- Google analytics code -->
-    {% if site.config.mode == "production" -%}
-        {% include "ga.j2" %}
-    {%- endif %}
-</head>
+    </head>
 <body>
 
     <div id="header-container">    
@@ -36,11 +33,13 @@
 
     <div id="main-wrap">      
         <div id="content">
-            {% block content %}{% endblock %}
+            <div class="landing">
+<p>My name is Dan. I'm a programmer based in Redmond, Washington. Take a look at what I've <a href="blog.html">written</a>, my <a href="projects.html">projects</a>, what I've been up to, or learn more <a href="about.html">about me</a>.</p>
+<p>If you need to reach me, send me an <LINK HERE>email</p></div>
         </div>
 
         <div class="footer">
-            <p>&copy; Copyright 2013 by {{ author.name }}</p>
+            <p>&copy; Copyright 2013 by Dan Carroll</p>
             <p>:-)</p>
         </div>
     </div>

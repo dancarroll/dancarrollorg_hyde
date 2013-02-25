@@ -18,8 +18,8 @@ plugins:
 context:
     data:
         author:
-            name: Merlin Rebrović
-            url: "http://merlin.rebrovic.net"
+            name: Dan Carroll
+            url: "http://dancarroll.org"
         layout:
             name: Hyde Starter Kit
             url: "https://github.com/merlinrebrovic/hyde-starter-kit"
@@ -47,6 +47,7 @@ meta:
     # number of files.
     nodemeta: meta.yaml
     ga_tracking_code: XX-XXXXXXXX-X
+    author: Dan Carroll
 
 sorter:
     name: # the name of the sorter (no pun intended)

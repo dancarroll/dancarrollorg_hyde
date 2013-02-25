@@ -1,23 +1,11 @@
 {# Use base.j2 template as a base and only provide values for placeholders
    in this file.
 #}
-{% extends "base.j2" %}
+{% extends "splash.j2" %}
 
 {# Markdown main content block. #}
-{% block content %}
-What is this all about
-======================
+{% block text %}
+My name is Dan. I'm a programmer based in Redmond, Washington. Take a look at what I've [written](blog.html), my [projects](projects.html), what I've been up to, or learn more [about me](about.html).
 
-Starter Kit introduces you to Hyde's many options and possibilities.
-Finding your way for the first time can be a bit confusing, so this
-template tries to ease your way in by exposing only core features and
-technologies step by step. Those are:
-
-  * basic Hyde site structure
-  * configuration file
-  * Jinja templates
-  * Markdown
-  * basic metadata and plugins
-
-Are you ready for your [first steps](first-steps.html)?
+If you need to reach me, send me an <LINK HERE>email
 {% endblock %}
