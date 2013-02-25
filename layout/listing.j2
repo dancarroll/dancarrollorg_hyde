@@ -6,8 +6,8 @@
         {% for res in resource.node.walk_resources() %}
 {% if res.meta.listable %}
         <li>
-            <a href="article.html">{{ res.meta.title }}</a>
-            <div class="bordertop"><span class="snip">{{ res.meta.description }}{{ res.url }}</span></div>
+            <a href="{{ res.url }}">{{ res.meta.title }}</a>
+            <div class="bordertop"><span class="snip">{{ res.meta.description }}</span></div>
         </li>
 {% endif %}
         {% endfor %}

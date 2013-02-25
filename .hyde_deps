@@ -15,3 +15,6 @@
 !!python/unicode 'media/css/aal.css': []
 !!python/unicode 'media/css/base.css': []
 !!python/unicode 'media/css/style.css': []
+!!python/unicode 'media/js/dc.js': []
+!!python/unicode 'media/js/jquery.min.js': []
+!!python/unicode 'media/js/jquery.timeago.js': []

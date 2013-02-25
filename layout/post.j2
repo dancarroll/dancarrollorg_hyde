@@ -1,8 +1,14 @@
 {% extends "base.j2" %}
 
+{% block extrahead %}
+<script src="{{ media_url('js/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ media_url('js/jquery.timeago.js') }}" type="text/javascript"></script>
+<script src="{{ media_url('js/dc.js') }}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
 <h1>{{ resource.meta.title }}</h1>
-<h2>Listable: {{ resource.meta.listable }}</h2>
+<p class="date">Posted <abbr class="timeago" title="{{ resource.meta.created.strftime('%Y-%m-%d') }}T{{ resource.meta.created.strftime('%H:%M:%S') }}">{{ resource.meta.created.strftime('%B %d, %Y') }}</abbr>. Tagged <a href="/">tag1</a> and <a href="/">tag2</a>.</p>
 {% filter markdown -%}
 {% block text %}{% endblock %}
 {%- endfilter %}

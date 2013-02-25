@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ media_url('css/base.css') }}" type="text/css" media="screen" charset="utf-8" />
     <meta name="description" content="Personal blog of Dan Carroll, a developer based in Cambridge. Topics include C#, Python, Django, and gaming." />
 
+    {% block extrahead %}{% endblock %}
+
     <!-- Google analytics code -->
     {% if site.config.mode == "production" -%}
         {% include "ga.j2" %}
