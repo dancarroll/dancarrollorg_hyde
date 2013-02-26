@@ -4,6 +4,12 @@
 !!python/unicode 'advanced/sorter.html': [ga.j2, base.j2]
 !!python/unicode 'advanced/tagger.html': [ga.j2, base.j2]
 !!python/unicode 'blog.html': [ga.j2, base.j2]
+!!python/unicode 'blog/2010/12/linux-vm-for-web-development.html': [ga.j2, base.j2,
+  post.j2]
+!!python/unicode 'blog/2010/12/using-windows-to-access-linux-host-name - Copy.html': [
+  ga.j2, base.j2, post.j2]
+!!python/unicode 'blog/2010/12/using-windows-to-access-linux-host-name.html': [ga.j2,
+  base.j2, post.j2]
 !!python/unicode 'blog/2011/01/debugging-django-dev-server.html': [ga.j2, base.j2,
   post.j2]
 !!python/unicode 'blog/2011/02/announcing-django-activitysync.html': [ga.j2, base.j2,
