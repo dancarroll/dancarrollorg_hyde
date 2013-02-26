@@ -1,4 +1,4 @@
-!!python/unicode 'about.html': [ga.j2, base.j2]
+!!python/unicode 'about.html': [ga.j2, base.j2, flatpage.j2]
 !!python/unicode 'advanced/grouper.html': [ga.j2, base.j2]
 !!python/unicode 'advanced/overview.html': [ga.j2, base.j2]
 !!python/unicode 'advanced/sorter.html': [ga.j2, base.j2]

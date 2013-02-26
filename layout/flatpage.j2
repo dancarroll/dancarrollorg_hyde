@@ -1,0 +1,8 @@
+{% extends "base.j2" %}
+
+{% block content %}
+<h1>{{ resource.meta.title }}</h1>
+{% filter markdown -%}
+{% block text %}{% endblock %}
+{%- endfilter %}
+{% endblock %}
