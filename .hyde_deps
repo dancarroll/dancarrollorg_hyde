@@ -32,3 +32,4 @@
 !!python/unicode 'media/js/dc.js': []
 !!python/unicode 'media/js/jquery.min.js': []
 !!python/unicode 'media/js/jquery.timeago.js': []
+!!python/unicode 'projects.html': [ga.j2, base.j2, flatpage.j2]
