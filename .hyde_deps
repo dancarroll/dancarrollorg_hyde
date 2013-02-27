@@ -5,7 +5,10 @@
 !!python/unicode 'advanced/tagger.html': [ga.j2, base.j2]
 !!python/unicode 'blog.html': [ga.j2, base.j2]
 !!python/unicode 'blog/2010/03/cron-job-in-virtualenv.html': [ga.j2, base.j2, post.j2]
+!!python/unicode 'blog/2010/03/olympic-gold-rush.html': [ga.j2, base.j2, post.j2]
 !!python/unicode 'blog/2010/03/open-source.html': [ga.j2, base.j2, post.j2]
+!!python/unicode 'blog/2010/03/using-two-digit-months.html': [ga.j2, base.j2, post.j2]
+!!python/unicode 'blog/2010/03/welcome.html': [ga.j2, base.j2, post.j2]
 !!python/unicode 'blog/2010/04/using-infinitepaginator.html': [ga.j2, base.j2, post.j2]
 !!python/unicode 'blog/2010/05/extending-infinitepaginator.html': [ga.j2, base.j2,
   post.j2]
