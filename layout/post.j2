@@ -7,11 +7,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ resource.meta.title }}</h1>
+<h1>{{ resource.meta.title|typogrify }}</h1>
 <p class="date">Posted <abbr class="timeago" title="{{ resource.meta.created.strftime('%Y-%m-%d') }}T{{ resource.meta.created.strftime('%H:%M:%S') }}">{{ resource.meta.created.strftime('%B %d, %Y') }}</abbr>. Tagged
 {% for tag in resource.meta.tags %}{% if not loop.first and loop.length > 2 %}, {% elif not loop.first and loop.length == 2 %} {% endif %}{% if loop.last and loop.length > 1 %}and {% endif%}<a href="/blog/tags/{{ tag }}/">{{ tag }}</a>{% endfor %}.</p>
 
-{% filter markdown -%}
-{% block text %}{% endblock %}
+{% filter markdown|typogrify -%}
+{% mark post %}
+{% block text -%}{%- endblock %}
+{% endmark %}
 {%- endfilter %}
 {% endblock %}

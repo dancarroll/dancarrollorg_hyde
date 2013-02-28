@@ -2,7 +2,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>
-        {% block title %}{{ resource.meta.title }}{% endblock %}
+        {% block title %}{{ author.name}} | {{ resource.meta.title }}{% endblock %}
     </title>
     {% block self_url %}
     <link href="{{ author.url }}{{ resource.full_url }}" rel="self" />
@@ -17,7 +17,7 @@
 
     <updated>{{ time_now|xmldatetime }}</updated>
 
-    <id>{{ content_url(resource.url) }}/</id>
+    <id>{{ author.url }}{{ resource.full_url }}/</id>
 
     {% for res in site.content.walk_resources_sorted_by_time() %}
         {% if loop.index > 5 %}{% break %}{% endif %}
@@ -33,7 +33,7 @@
             <content type="html">
                 {% refer to res.url as article -%}
                 {% filter forceescape -%}
-                {{ article.post|markdown|typogrify }}
+                {{ article.post }}
                 {%- endfilter %}
             </content>
         </entry>
