@@ -114,5 +114,6 @@ urlcleaner:
         - index.html
     strip_extensions:
         - html
+        - xml
     append_slash: true
 
