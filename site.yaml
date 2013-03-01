@@ -1,4 +1,4 @@
-mode: learning
+mode: debug
 media_root: media
 media_url: /media
 base_url: /
@@ -11,9 +11,7 @@ template: hyde.ext.templates.jinja.Jinja2Template
 plugins:
     - hyde.ext.plugins.meta.MetaPlugin
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
-    # Plugins needed for the advances section.
     - hyde.ext.plugins.sorter.SorterPlugin
-    - hyde.ext.plugins.grouper.GrouperPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
     - hyde.ext.plugins.urls.UrlCleanerPlugin
 
@@ -22,24 +20,6 @@ context:
         author:
             name: Dan Carroll
             url: "http://dancarroll.org"
-        layout:
-            name: Hyde Starter Kit
-            url: "https://github.com/merlinrebrovic/hyde-starter-kit"
-        project:
-            name: Hyde
-            url: "http://hyde.github.com"
-            install: "http://hyde.github.com/install.html"
-        menu:
-          - title: Home
-            url: index.html
-          - title: First steps
-            url: first-steps.html
-          - title: Advanced topics
-            url: advanced/overview.html
-          - title: About
-            url: about.html
-
-### Advanced part ###
 
 # This defines meta data on the whole site.
 meta:
@@ -56,48 +36,12 @@ sorter:
         attr: name # by which attributes will resources be sorted
         filters:
             source_file.kind: html
-            # You can include only files from a certain folder.
-            #resource.node: (name of the folder)
-        #reverse: True # if you need the list backwards
-    file_type:
-        attr: 
-            - source_file.kind
-            - source_file.size
-    index:
-        attr: meta.index
-        filters:
-            source_file.kind: html
-    learning_order:
-        attr: meta.learning_order
-        filters:
-            source_file.kind: html
     time:
         attr: meta.created
         reverse: true
         filters:
             source.kind: html
             meta.listable: true
-
-grouper:
-    level:
-        sorter: name
-        description: Difficulty levels
-        groups:
-            - name: basic
-              description: Basic
-            - name: advanced
-              description: Advanced
-    # You can have more than one group section, depending on your needs.
-    # For example: "categories", "menu sections", etc.
-    #category:
-    #    description: To which category a blog post belongs to.
-    #    groups:
-    #        - name: software
-    #          description: Software engineering
-    #        - name: web
-    #          description: Web technologies
-    #        - name: seo
-    #          description: Search Engine Optimization
 
 tagger:
     sorter: name
