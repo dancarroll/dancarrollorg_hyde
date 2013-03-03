@@ -13,7 +13,7 @@ plugins:
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
-    - hyde.ext.plugins.urls.UrlCleanerPlugin
+    - plugins.UrlCleanerPlugin
 
 context:
     data:
