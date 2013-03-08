@@ -14,6 +14,7 @@ plugins:
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
     - plugins.UrlCleanerPlugin
+    - plugins.FlattenerPlugin
 
 context:
     data:

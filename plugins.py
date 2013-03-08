@@ -76,3 +76,32 @@ class UrlCleanerPlugin(Plugin):
         Site.___url_cleaner_patched___ = True
         Site.content_url = clean_url(Site.content_url)
 
+
+class FlattenerPlugin(Plugin):
+    """
+    The plugin class for flattening nested folders.
+    """
+    def __init__(self, site):
+        super(FlattenerPlugin, self).__init__(site)
+
+    def begin_site(self):
+        """
+        Finds all the folders that need flattening and changes the
+        relative deploy path of all resources in those folders.
+        """
+	for resource in self.site.content.walk_resources():
+	    targetFilename = "index.html"
+	    f = File(resource.relative_path)
+
+	    if f.extension == ".html" and not f.name == targetFilename:
+	        targetFolder = f.parent.child_folder(f.name_without_extension)
+	        targetFile = targetFolder.child(targetFilename)
+	        resource.relative_deploy_path = targetFile
+	    #if resource.meta.listable:
+                #node = self.site.content.node_from_relative_path(resource.source)
+		#folder = Folder(resource.target)
+		# resource.source_file.kind
+		#target = File(self.site.config.deploy_root_path.child(resource.relative_deploy_path))
+
+		#resource.relative_deploy_path = target.relative_deploy_path
+
