@@ -21,6 +21,15 @@ context:
         author:
             name: Dan Carroll
             url: "http://dancarroll.org"
+        blog:
+            name: blog
+            url: "/blog/"
+        projects:
+            name: projects
+            url: "/projects/"
+        about:
+            name: about
+            url: "/about/"
 
 # This defines meta data on the whole site.
 meta:

@@ -28,10 +28,10 @@
             </header>
             
             <nav>
-                <a href="/blog/">blog</a>
-                <a href="/projects/">projects</a>
-                <a href="/about/">about</a>
-                <a href="/feeds/latest/">feed</a>
+		<a href="{{ blog.url }}">{{ blog.name }}</a>
+		<a href="{{ projects.url }}">{{ projects.name }}</a>
+		<a href="{{ about.url }}">{{ about.name }}</a>
+		<a href="/feeds/latest.xml">feed</a>
             </nav>
         </div>
     </div>
