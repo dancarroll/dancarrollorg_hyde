@@ -9,7 +9,7 @@
     {% endblock %}
 
     {% block site_url %}
-    <link href="{{ author.url }}{{ resource.site.full_url('') }}"/>
+    <link href="{{ author.url }}" />
     {% endblock %}
 
     {% block feed_extra %}
@@ -17,7 +17,7 @@
 
     <updated>{{ time_now|xmldatetime }}</updated>
 
-    <id>{{ author.url }}{{ resource.full_url }}/</id>
+    <id>{{ author.url }}{{ resource.full_url }}</id>
 
     {% for res in site.content.walk_resources_sorted_by_time() %}
         {% if loop.index > 5 %}{% break %}{% endif %}
@@ -31,9 +31,9 @@
             <id>{{ author.url }}{{ content_url(res.url) }}</id>
 
             <content type="html">
-                {% refer to res.url as article -%}
+                {% refer to res.relative_path as article -%}
                 {% filter forceescape -%}
-                {{ article.post }}
+                {{ article.post|markdown }}
                 {%- endfilter %}
             </content>
         </entry>
