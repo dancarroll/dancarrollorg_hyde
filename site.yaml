@@ -30,6 +30,9 @@ context:
         about:
             name: about
             url: "/about/"
+        feed:
+            name: feed
+            url: "/feeds/latest.xml"
 
 # This defines meta data on the whole site.
 meta:

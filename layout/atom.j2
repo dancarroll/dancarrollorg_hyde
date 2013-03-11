@@ -1,9 +1,7 @@
 {% from "macros.j2" import render_excerpt, render_post with context %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>
-        {% block title %}{{ author.name}} | {{ resource.meta.title }}{% endblock %}
-    </title>
+    <title>{% block title %}{{ author.name}} | {{ resource.meta.title }}{% endblock %}</title>
     {% block self_url %}
     <link href="{{ author.url }}{{ resource.full_url }}" rel="self" />
     {% endblock %}
