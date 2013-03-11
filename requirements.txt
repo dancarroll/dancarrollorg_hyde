@@ -7,7 +7,8 @@ argparse==1.2.1
 commando==0.3.1a
 distribute==0.6.14
 -e git://github.com/hyde/hyde@e1cdd457f9aaaa56af98849a4848b014eef5680c#egg=hyde-dev
-paramiko==1.9.0
+paramiko==1.10.0
+pycrypto==2.6
 smartypants==1.6.0.3
 -e git://github.com/hyde/typogrify@b83867fe26dca76e0db6833b1cc2271228e62548#egg=typogrify_hyde-dev
 wsgiref==0.1.2
