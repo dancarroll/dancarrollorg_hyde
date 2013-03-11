@@ -57,7 +57,7 @@ sorter:
             meta.listable: true
 
 tagger:
-    sorter: name
+    sorter: time
 
 markdown:
     extensions:
