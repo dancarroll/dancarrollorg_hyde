@@ -1,0 +1,17 @@
+{% extends "base.j2" %}
+
+{% block content %}
+<h1>Tagged with '{{ resource.meta.title }}'</h1>
+<div class="entry-list">
+    <ol class="group">
+        {% for res in resource.node.walk_resources_tagged_with(resource.meta.title) %}
+{% if res.meta.listable %}
+        <li>
+            <a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a>
+            <div class="bordertop"><span class="snip">{{ res.meta.description }}</span></div>
+        </li>
+{% endif %}
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

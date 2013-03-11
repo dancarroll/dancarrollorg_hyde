@@ -1,0 +1,2 @@
+extends: listing_tag.j2
+default_block: text
