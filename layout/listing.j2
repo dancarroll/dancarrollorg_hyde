@@ -1,15 +1,11 @@
 {% extends "base.j2" %}
+{% from "macros.j2" import render_listing_item with context %}
 
 {% block content %}
 <div class="entry-list">
     <ol class="group">
         {% for res in resource.node.walk_resources_sorted_by_time() %}
-{% if res.meta.listable %}
-        <li>
-            <a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a>
-            <div class="bordertop"><span class="snip">{{ res.meta.description }}</span></div>
-        </li>
-{% endif %}
+	  {{ render_listing_item(res) }}
         {% endfor %}
     </ol>
 </div>
