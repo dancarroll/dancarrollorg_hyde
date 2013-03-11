@@ -10,6 +10,7 @@ tags:
 
 I love using Cygwin to get access to a Unix shell on Windows, but often you'll run into this fatal error on Vista and Windows 7:
 
+    :::text
     *** fatal error - unable to remap \\?\C:\cygwin\lib\python2.6\lib-dynload\time.dll to same address as parent
     
 
@@ -26,6 +27,7 @@ Finally, the fix:
 3. Navigate to the Cygwin bin directory (i.e. C:\cygwin\bin)
 4. Run the following commands:
 
+        :::text
         $ c:\cygwin\bin>ash
         $ ./rebaseall
 

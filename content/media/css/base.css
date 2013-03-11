@@ -294,7 +294,7 @@ body p code, body li code {
 /* Code styles
  * pygmentize -S native -f html
  */
-.codehilite pre { background-color: #202020; margin-left: 0; }
+.codehilite pre { background-color: #202020; margin-left: 0; color:#cccccc; }
 .hll { background-color: #404040 }
 .c { color: #999999; font-style: italic } /* Comment */
 .err { color: #a61717; background-color: #e3d2d2 } /* Error */
