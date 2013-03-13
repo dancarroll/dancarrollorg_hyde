@@ -1,4 +1,4 @@
-{% from "macros.j2" import render_excerpt, render_post with context %}
+{% from "macros.j2" import render_atom_item with context %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{% block title %}{{ author.name}} | {{ resource.meta.title }}{% endblock %}</title>
@@ -19,22 +19,6 @@
 
     {% for res in site.content.walk_resources_sorted_by_time() %}
         {% if loop.index > 5 %}{% break %}{% endif %}
-        {% if res.meta.listable %}
-        <entry>
-            <title type="html">{{ res.meta.title }}</title>
-            <author><name>{{ author.name }}</name></author>
-            <link href="{{ author.url }}{{ content_url(res.url) }}"/>
-            <updated>{{ res.meta.created|xmldatetime }}</updated>
-            <published>{{ res.meta.created|xmldatetime }}</published>
-            <id>{{ author.url }}{{ content_url(res.url) }}</id>
-
-            <content type="html">
-                {% refer to res.relative_path as article -%}
-                {% filter forceescape -%}
-                {{ article.post|markdown }}
-                {%- endfilter %}
-            </content>
-        </entry>
-        {% endif %}
+        {{ render_atom_item(res) }}
     {% endfor %}
 </feed>

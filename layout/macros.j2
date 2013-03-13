@@ -9,3 +9,25 @@
 
 {% endmacro %}
 
+
+{% macro render_atom_item(res) %}
+
+{% if res.meta.listable %}
+<entry>
+    <title type="html">{{ res.meta.title }}</title>
+    <author><name>{{ author.name }}</name></author>
+    <link href="{{ author.url }}{{ content_url(res.url) }}"/>
+    <updated>{{ res.meta.created|xmldatetime }}</updated>
+    <published>{{ res.meta.created|xmldatetime }}</published>
+    <id>{{ author.url }}{{ content_url(res.url) }}</id>
+
+    <content type="html">
+        {% refer to res.relative_path as article -%}
+        {% filter forceescape -%}
+        {{ article.post|markdown }}
+        {%- endfilter %}
+    </content>
+</entry>
+{% endif %}
+
+{% endmacro %}
