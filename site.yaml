@@ -72,6 +72,7 @@ markdown:
 urlcleaner:
     index_file_names:
         - index.html
+        - index.xml
     strip_extensions:
         - html
         - xml
