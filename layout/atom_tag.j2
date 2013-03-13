@@ -1,0 +1,39 @@
+{% from "macros.j2" import render_excerpt, render_post with context %}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{% block title %}{{ author.name}} | {{ resource.meta.title }}{% endblock %}</title>
+    {% block self_url %}
+    <link href="{{ author.url }}{{ resource.full_url }}" rel="self" />
+    {% endblock %}
+
+    {% block site_url %}
+    <link href="{{ author.url }}" />
+    {% endblock %}
+
+    {% block feed_extra %}
+    {% endblock %}
+
+    <updated>{{ time_now|xmldatetime }}</updated>
+
+    <id>{{ author.url }}{{ resource.full_url }}</id>
+
+    {% for res in site.content.walk_resources_tagged_with(resource.meta.title) %}
+        {% if res.meta.listable %}
+        <entry>
+            <title type="html">{{ res.meta.title }}</title>
+            <author><name>{{ author.name }}</name></author>
+            <link href="{{ author.url }}{{ content_url(res.url) }}"/>
+            <updated>{{ res.meta.created|xmldatetime }}</updated>
+            <published>{{ res.meta.created|xmldatetime }}</published>
+            <id>{{ author.url }}{{ content_url(res.url) }}</id>
+
+            <content type="html">
+                {% refer to res.relative_path as article -%}
+                {% filter forceescape -%}
+                {{ article.post|markdown }}
+                {%- endfilter %}
+            </content>
+        </entry>
+        {% endif %}
+    {% endfor %}
+</feed>
