@@ -89,19 +89,14 @@ class FlattenerPlugin(Plugin):
         Finds all the folders that need flattening and changes the
         relative deploy path of all resources in those folders.
         """
-	for resource in self.site.content.walk_resources():
-	    targetFilename = "index.html"
-	    f = File(resource.relative_path)
+        for resource in self.site.content.walk_resources():
+            target_name = 'index'
+            target_extensions = ['.html', '.xml']
+            f = File(resource.relative_path)
 
-	    if f.extension == ".html" and not f.name == targetFilename:
-	        targetFolder = f.parent.child_folder(f.name_without_extension)
-	        targetFile = targetFolder.child(targetFilename)
-	        resource.relative_deploy_path = targetFile
-	    #if resource.meta.listable:
-                #node = self.site.content.node_from_relative_path(resource.source)
-		#folder = Folder(resource.target)
-		# resource.source_file.kind
-		#target = File(self.site.config.deploy_root_path.child(resource.relative_deploy_path))
-
-		#resource.relative_deploy_path = target.relative_deploy_path
+            if f.extension in target_extensions and not f.name_without_extension == target_name:
+                targetFolder = f.parent.child_folder(f.name_without_extension)
+                filename = target_name + f.extension
+                targetFile = targetFolder.child(filename)
+                resource.relative_deploy_path = targetFile
 
