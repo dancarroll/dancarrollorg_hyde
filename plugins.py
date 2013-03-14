@@ -92,9 +92,11 @@ class FlattenerPlugin(Plugin):
         for resource in self.site.content.walk_resources():
             target_name = 'index'
             target_extensions = ['.html', '.xml']
+            excluded_files = ['sitemap.xml']
+
             f = File(resource.relative_path)
 
-            if f.extension in target_extensions and not f.name_without_extension == target_name:
+            if f.extension in target_extensions and not f.name_without_extension == target_name and not f.name in excluded_files:
                 targetFolder = f.parent.child_folder(f.name_without_extension)
                 filename = target_name + f.extension
                 targetFile = targetFolder.child(filename)
