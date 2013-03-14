@@ -1,0 +1,5 @@
+{% raw -%}
+User-Agent: *
+Disallow:
+{% endraw %}
+Sitemap: {{ author.url}}/sitemap.xml
