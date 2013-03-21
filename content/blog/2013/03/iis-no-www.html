@@ -1,0 +1,52 @@
+---
+listable: true
+title: Configuring No-WWW for IIS on Azure
+description: >
+    Some tips for configuring setting up IIS' Web.Config file 
+created: !!timestamp '2013-03-24 12:00:00'
+tags:
+    - windows
+    - coding
+    - azure
+---
+
+As part of the rollout of my site redesign, I've also switched hosts from [WebFaction](http://www.webfaction.com/) to [Windows Azure](http://www.windowsazure.com/).  WebFaction was a great value for a shared host, and I'll probably continue to use it in the future for small Python/Django projects, but I've been experimenting with Azure on some other projects and took the opportunity to make the switch.
+
+Where'd my .htaccess go?
+------------------------
+[Azure Web Sites](http://www.windowsazure.com/en-us/home/features/web-sites/) use IIS as a web server, not the more common Apache (or Nginx) server widely used across the Unix world.  While Azure handles all of the server setup and maintenace for many cases, you'll still need to get your hands dirty if you need custom handling.
+
+One of the big behaviors I needed to maintain in the migration was to continue adherence to the [No-WWW philosophy](http://no-www.org/).  This means making dancarroll.org the canonical name of my site, with www.dancarroll.org redirecting to the no-www version.
+
+I had this set up on the previous iteration of the site using an Apache .htaccess file.  It was very easy to find examples of how to do this across the web.
+
+    :::apacheconf
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=permanent,L]
+
+IIS, however, does not use .htaccess files.  Instead, I needed to create a [Web.config](http://en.wikipedia.org/wiki/Web.config) file with the appropriate settings.
+
+
+IIS URL Rewrite
+---------------
+Luckily, IIS has its own [URL rewriting module](http://www.iis.net/downloads/microsoft/url-rewrite).
+    :::xml
+    <?xml version="1.0"?>
+    <configuration>
+      <system.webServer>
+        <rewrite>
+          <rules>
+            <rule name="Canonical Hostname" stopProcessing="false">
+              <match url="(.*)" />
+              <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                <add input="{HTTP_HOST}" pattern="^(www\.)(.*)$" />
+              </conditions>
+		      <action type="Redirect" url="http://{C:2}{REQUEST_URI}" redirectType="Permanent" />
+            </rule>
+          </rules>
+        </rewrite>
+      </system.webServer>
+    </configuration>
+
