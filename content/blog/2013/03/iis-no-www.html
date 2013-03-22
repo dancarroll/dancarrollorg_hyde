@@ -3,7 +3,7 @@ listable: true
 title: Configuring No-WWW for IIS on Azure
 description: >
     Some tips for configuring setting up IIS' Web.Config file to ensure a good canonical name.
-created: !!timestamp '2013-03-24 12:00:00'
+created: !!timestamp '2013-03-22 00:45:00'
 tags:
     - windows
     - coding
@@ -56,6 +56,27 @@ Here's what I came up with:
     </configuration>
 
 And that's it!  I found that Azure would recognize the file modification and start using it, but you may need to manually restart the site using the Azure management portal.
+
+Breaking it down
+----------------
+The [documentation for IIS URL Rewrite](http://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) is decent, but I wanted to provide a few quick notes about what is going on here.
+
+    :::xml
+    <match url="(.*)" />
+    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+      <add input="{HTTP_HOST}" pattern="^(www\.)(.*)$" />
+    </conditions>
+
+The `match` element defines the pattern that will be used to find URLs to be processed.  In this case, the regular expression used captures all URLs.  A condition is then created to provide additional refinement to which URLs will have a rewrite action taken.  Here, the condition only looks at the server variable `HTTP_HOST`, which requires matching the *host domain* (not the full URL).  The regular expression used only matches hosts starting with `www.`.
+
+    :::xml
+    <action type="Redirect" url="http://{C:2}{REQUEST_URI}" redirectType="Permanent" />
+
+If there was a successful match, then an action is taken for that particular URL.  In this case, the action is a redirect, with the "Permanent" `redirectType` mapping to an HTTP 301 status code.  The `url` attribute defines the redirect URL, and I'm using two features here to generate it.
+
+`{C:2}` is a back-reference, which as its name implies, refers back to data captured previously in the rule.  The `C` states that we are referring to something captured by a condition (as opposed to the rule match), and the `2` is the second group match (0 is the full pattern, 1 is the `www.` part, and 2 is the remainder of the host).
+
+Finally, `{REQUEST_URI}` is a another server variable that IIS lets us reference, and it contains the full path to the requested document.  If the URL is `http://www.dancarroll.org/blog/`, then `REQUEST_URI` is `/blog/`.
 
 Bonus Rules
 -----------
