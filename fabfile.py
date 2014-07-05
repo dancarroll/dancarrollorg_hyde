@@ -2,7 +2,7 @@ from fabric.api import *
 import os
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
-DEPLOY_PATH = os.path.join(ROOT_PATH, 'deploy')
+DEPLOY_PATH = os.path.join(ROOT_PATH, 'static')
 
 def clean():
     local('rm -rf ./deploy')
